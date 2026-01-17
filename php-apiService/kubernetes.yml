@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: php-api
+  template:
+    metadata:
+      labels:
+        app: php-api
+    spec:
+      containers:
+      - name: php-api
+        image: marineesta/php-todo-api:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: mysql-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-api-service
+spec:
+  selector:
+    app: php-api
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
