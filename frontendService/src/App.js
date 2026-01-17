@@ -109,7 +109,7 @@ function App() {
     return (
       <div className="App">
         <div className="auth-container">
-          <h1>odo App</h1>
+          <h1>Todo App</h1>
           <h2>{isLogin ? 'Connexion' : 'Inscription'}</h2>
           {error && <div className={error.includes('créé') ? 'success' : 'error'}>{error}</div>}
           <form onSubmit={handleAuth}>
@@ -146,7 +146,7 @@ function App() {
     <div className="App">
       <header>
         <h1>My Tasks</h1>
-        <button onClick={handleLogout} className="logout-btn">Déconnexion</button>
+        <button onClick={handleLogout} className="logout-btn">Logout</button>
       </header>
 
       <div className="container">
@@ -169,7 +169,7 @@ function App() {
 
         <div className="tasks-list">
           {tasks.length === 0 ? (
-            <p className="no-tasks">Aucune tâche. Ajoutez-en une !</p>
+            <p className="no-tasks">No tasks. Add one!</p>
           ) : (
             tasks.map(task => (
               <div key={task.id} className={`task ${task.status}`}>
