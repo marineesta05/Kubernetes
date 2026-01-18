@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: php-api
-        image: marineesta/php-todo-api:v1
-        imagePullPolicy: Always
+        image: marineesta/php-todo-api:v3
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
         env:
